@@ -1,0 +1,6 @@
+ext {
+    attr_applicationId = 'com.udacity.asteroidradar'
+    attr_JUnitRunner = 'androidx.test.runner.AndroidJUnitRunner'
+    attr_allowResultAsReturnType = '-Xallow-result-return-type'
+    attr_cMakeFile = 'CMakeLists.txt'
+}

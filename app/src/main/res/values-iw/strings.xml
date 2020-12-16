@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">מכ\"ם אסטרואידים</string>
+    <string name="logo_name">מכ\"ם אסטרואידים</string>
+    <string name="logo_description">לוגו מכ"ם לאסטרואידים</string>
+    <string name="application_loading">היישום נטען</string>
+    <string name="list_of_asteroids_loading">טוען אסטרואידים</string>
+    <string name="list_of_asteroids">זוהי רשימת האסטרואידים הגישה הקרובה ביותר לכדור הארץ בשבוע הבא</string>
+    <string name="asteroid_list_empty">אין אסטרואידים הרשומיםn\אנא בדוק את החיבור שלך</string>
+    <string name="OK">בסדר</string>
+    <string name="asteroid_details">פרטי אסטרואידים</string>
+    <string name="close_approach_data_title">תאריך גישה קרוב</string>
+    <string name="absolute_magnitude_title">גודל מוחלט</string>
+    <string name="estimated_diameter_title">קוטר משוער</string>
+    <string name="relative_velocity_title">מהירות יחסית</string>
+    <string name="distance_from_earth_title">מרחק מכדור הארץ</string>
+    <string name="astronomical_unit_format">%f</string>
+    <string name="km_unit_format">%f</string>
+    <string name="km_s_unit_format">%f</string>
+    <string name="magnitude_unit_format">%f</string>
+    <string name="image_of_the_day">תמונה של היום</string>
+    <string name="astronomical_unit_explanation">היחידה האסטרונומית (au) היא יחידת אורך, בערך המרחק מכדור הארץ לשמש ושווה לכ -150 מיליון ק\"מ (93 מיליון ק\"מ)</string>
+    <string name="astronomical_unit_explanation_button">הגדרת יחידה אסטרונומית</string>
+    <string name="potentially_hazardous_asteroid_image">תמונת אסטרואיד מסוכנת עלולה</string>
+    <string name="not_hazardous_asteroid_image">לא תמונה אסטרואידית מסוכנת</string>
+    <string name="this_is_nasa_s_picture_of_day_showing_nothing_yet">זו תמונת היום של נאס\"א, שעדיין לא מראה דבר</string>
+    <string name="nasa_picture_of_day_content_description_format">תמונת היום של נאס\"א:%s</string>
+</resources>

@@ -1,0 +1,30 @@
+buildscript {
+
+    apply from: 'versions.gradle'
+    apply from: 'attributes.gradle'
+    apply from: 'plugins.gradle'
+
+    repositories {
+        google()
+        jcenter()
+
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$version_android_gradle"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$version_kotlin"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$version_navigation"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$version_dagger_hilt"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

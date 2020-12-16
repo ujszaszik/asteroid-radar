@@ -1,0 +1,118 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="pictureOfTheDay"
+            type="com.udacity.asteroidradar.model.PictureOfDay" />
+
+        <variable
+            name="viewModel"
+            type="com.udacity.asteroidradar.ui.main.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        tools:context="com.udacity.asteroidradar.ui.main.MainFragment">
+
+        <ImageView
+            android:id="@+id/imageOfTheDay"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="@dimen/match_constraint"
+            android:contentDescription="@{@string/nasa_picture_of_day_content_description_format(pictureOfTheDay.title)}"
+            app:imageUrl="@{pictureOfTheDay.url}"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/statusImage"
+            style="@style/SmallMarginHorizontallyAndVertically"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="@dimen/match_constraint"
+            android:contentDescription="@string/this_is_nasa_s_picture_of_day_showing_nothing_yet"
+            app:asteroidPictureNetworkStatus="@{viewModel.currentPictureOfTheDayNetworkStatus}"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@dimen/bias_30pct" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/asteroidListRecyclerView"
+            style="style/AsteroidListRecyclerView"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="@dimen/match_constraint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageOfTheDay"
+            app:networkVisibilityStatus="@{viewModel.asteroidListNetworkStatus}" />
+
+        <ProgressBar
+            android:id="@+id/asteroidListProgressBar"
+            style="@style/SmallMarginHorizontallyAndVertically"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:asteroidListNetworkStatus="@{viewModel.asteroidListNetworkStatus}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageOfTheDay" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/ImageOfTheDayTextView"
+            android:contentDescription="@string/image_of_the_day"
+            android:text="@string/image_of_the_day"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/emptyAsteroidList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageOfTheDay"
+            app:showEmptyListLayout="@{viewModel.showEmptyListLayout}">
+
+            <ImageView
+                android:id="@+id/emptyAsteroidListImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/emptyAsteroidListTextVIew"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="@dimen/bias_half"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:srcCompat="@drawable/icon_telescope" />
+
+            <TextView
+                android:id="@+id/emptyAsteroidListTextVIew"
+                style="@style/NoAsteroidShownTextView"
+                android:contentDescription="@string/asteroid_list_empty"
+                android:text="@string/asteroid_list_empty"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="@dimen/bias_half"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emptyAsteroidListImage" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

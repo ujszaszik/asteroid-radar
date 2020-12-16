@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="asteroid"
+            type="com.udacity.asteroidradar.model.Asteroid" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/hazardousImage"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="@dimen/match_constraint"
+            app:isPotentiallyHazardousContentDescription="@{asteroid.potentiallyHazardous}"
+            app:isPotentiallyHazardousHeaderImage="@{asteroid.potentiallyHazardous}"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@dimen/bias_40pct" />
+
+        <com.udacity.asteroidradar.ui.details.AsteroidDetailView
+            android:id="@+id/closeApproachDateDetailView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/close_approach_data_title"
+            app:attributeName="@string/close_approach_data_title"
+            app:attributeValue="@{asteroid.closeApproachDate}"
+            app:layout_constraintBottom_toTopOf="@+id/absoluteMagnitudeDetailView"
+            app:layout_constraintTop_toTopOf="@id/guideline" />
+
+        <com.udacity.asteroidradar.ui.details.AsteroidDetailView
+            android:id="@+id/absoluteMagnitudeDetailView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/absolute_magnitude_title"
+            app:attributeName="@string/absolute_magnitude_title"
+            app:attributeValue="@{@string/magnitude_unit_format(asteroid.absoluteMagnitude)}"
+            app:layout_constraintBottom_toTopOf="@+id/estimatedDiameterDetailView"
+            app:layout_constraintTop_toBottomOf="@+id/closeApproachDateDetailView" />
+
+        <com.udacity.asteroidradar.ui.details.AsteroidDetailView
+            android:id="@+id/estimatedDiameterDetailView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/estimated_diameter_title"
+            app:attributeName="@string/estimated_diameter_title"
+            app:attributeValue="@{@string/km_unit_format(asteroid.estimatedDiameter)}"
+            app:layout_constraintBottom_toTopOf="@+id/relativeVelocityDetailView"
+            app:layout_constraintTop_toBottomOf="@+id/absoluteMagnitudeDetailView" />
+
+        <com.udacity.asteroidradar.ui.details.AsteroidDetailView
+            android:id="@+id/relativeVelocityDetailView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/relative_velocity_title"
+            app:attributeName="@string/relative_velocity_title"
+            app:attributeValue="@{@string/km_s_unit_format(asteroid.relativeVelocity)}"
+            app:layout_constraintBottom_toTopOf="@+id/distanceFromEarthDetailView"
+            app:layout_constraintTop_toBottomOf="@+id/estimatedDiameterDetailView" />
+
+        <com.udacity.asteroidradar.ui.details.AsteroidDetailView
+            android:id="@+id/distanceFromEarthDetailView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/distance_from_earth_title"
+            app:attributeName="@string/distance_from_earth_title"
+            app:attributeValue="@{@string/astronomical_unit_format(asteroid.distanceFromEarth)}"
+            app:layout_constraintBottom_toTopOf="@+id/closeApproachDateDetailView"
+            app:layout_constraintTop_toBottomOf="@+id/relativeVelocityDetailView"
+            app:showHelpImage="true" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

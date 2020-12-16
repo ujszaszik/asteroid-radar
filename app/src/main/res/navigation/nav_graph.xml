@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.udacity.asteroidradar.ui.main.MainFragment"
+        android:label="@string/app_name">
+        <action
+            android:id="@+id/action_mainFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:popUpTo="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.udacity.asteroidradar.ui.details.DetailFragment"
+        android:label="@string/asteroid_details">
+        <argument
+            android:name="asteroid"
+            app:argType="com.udacity.asteroidradar.model.Asteroid" />
+    </fragment>
+</navigation>

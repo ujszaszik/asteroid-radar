@@ -1,0 +1,8 @@
+ext {
+    plugin_android_app = 'com.android.application'
+    plugin_android_kotlin = 'kotlin-android'
+    plugin_kapt = 'kotlin-kapt'
+    plugin_safe_args_kotlin = 'androidx.navigation.safeargs.kotlin'
+    plugin_android_ktx = 'kotlin-android-extensions'
+    plugin_dagger_hilt = 'dagger.hilt.android.plugin'
+}

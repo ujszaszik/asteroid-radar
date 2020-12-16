@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="match_constraint">0dp</dimen>
+
+    <dimen name="default_margin">16dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="split_margin">4dp</dimen>
+
+    <dimen name="launcher_text_size">40sp</dimen>
+    <dimen name="raised_text_size">28sp</dimen>
+    <dimen name="highlight_text_size">24sp</dimen>
+    <dimen name="header_text_size">18sp</dimen>
+    <dimen name="default_text_size">16sp</dimen>
+
+    <dimen name="detail_view_height">80dp</dimen>
+
+    <dimen name="progress_bar_width">250dp</dimen>
+
+    <dimen name="bias_half">0.5</dimen>
+    <dimen name="bias_40pct">0.4</dimen>
+    <dimen name="bias_30pct">0.3</dimen>
+</resources>

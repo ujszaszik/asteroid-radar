@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/black</color>
+    <color name="colorPrimaryDark">#230EC1</color>
+    <color name="colorAccent">#3AFAEF</color>
+    <color name="potentially_hazardous">#FF8282</color>
+    <color name="dark_blue">#01002C</color>
+    <color name="telescope_green">#40ab64</color>
+    <color name="black">#000000</color>
+    <color name="black_transparent">#8C000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>

@@ -1,0 +1,111 @@
+apply plugin: "$plugin_android_app"
+apply plugin: "$plugin_android_kotlin"
+apply plugin: "$plugin_kapt"
+apply plugin: "$plugin_safe_args_kotlin"
+apply plugin: "$plugin_android_ktx"
+apply plugin: "$plugin_dagger_hilt"
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "$attr_applicationId"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "$attr_JUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        dataBinding true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        freeCompilerArgs = ["$attr_allowResultAsReturnType"]
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    externalNativeBuild {
+        cmake {
+            path "$attr_cMakeFile"
+        }
+    }
+
+    ndkVersion "$version_ndk"
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version_kotlin"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$version_kotlin"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_coroutines"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$version_coroutines_adapter"
+
+    // Android Extensions
+    implementation "androidx.appcompat:appcompat:$version_app_compat"
+    implementation "androidx.fragment:fragment-ktx:$version_fragment_ktx"
+    implementation "androidx.core:core-ktx:$version_x_core"
+    implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
+    implementation "androidx.recyclerview:recyclerview:$version_recycler_view"
+    implementation "androidx.legacy:legacy-support-v4:$version_legacy_support"
+    implementation "android.arch.work:work-runtime-ktx:$version_workmanager"
+
+    // Lifecycle extensions (ViewModel, LiveData)
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$version_lifecycle"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$version_lifecycle"
+    implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle"
+
+    // Navigation Component
+    implementation "androidx.navigation:navigation-ui-ktx:$version_navigation"
+    implementation "androidx.navigation:navigation-fragment-ktx:$version_navigation"
+
+    // Moshi
+    implementation "com.squareup.moshi:moshi:$version_moshi"
+    implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$version_moshi"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
+
+    // Room
+    implementation "androidx.room:room-ktx:$version_room"
+    implementation "androidx.room:room-runtime:$version_room"
+    kapt "androidx.room:room-compiler:$version_room"
+
+    // Dagger + Hilt
+    implementation "com.google.dagger:hilt-android:$version_dagger_hilt"
+    kapt "com.google.dagger:hilt-android-compiler:$version_dagger_hilt"
+
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$version_dagger_hilt_ext"
+    implementation "androidx.hilt:hilt-work:$version_dagger_hilt_ext"
+    kapt "androidx.hilt:hilt-compiler:$version_dagger_hilt_ext"
+
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$version_glide"
+    kapt "com.github.bumptech.glide:compiler:$version_glide"
+
+    // ThreeTen Android Backport (Local Date Time below API Level 26)
+    implementation "com.jakewharton.threetenabp:threetenabp:$version_three_ten_abp"
+
+    // JUnit
+    testImplementation "junit:junit:$version_junit"
+
+}
